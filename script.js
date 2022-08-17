@@ -1,45 +1,104 @@
-
-
-
-const times = document.querySelector('#times')
 const divs = document.querySelectorAll('div')
 
-let clickTime = 0
-let timesClicked = 0
-
 divs.forEach(div => {
-    div.addEventListener('click', function (e) {
-        if (clickTime === 0) {
-            clickTime = new Date().getTime()
-        } else {
-            if ((new Date().getTime() - clickTime) < 900) {
-                
-                const heart = document.createElement('i')
-                heart.classList.add('fas')
-                heart.classList.add('fa-heart')
 
-                const x = e.clientX
-                const y = e.clientY
-                const leftOffset = e.target.offsetLeft
-                const topOffset = e.target.offsetTop
+    const clock = document.createElement('span')
+    let count = 0
 
-                const xInside = x - leftOffset
-                const yInside = y - topOffset
+    div.addEventListener('dblclick', function createHeart(e) {
+        
+        const heart = document.createElement('i')
+        heart.classList.add('fas')
+        heart.classList.add('fa-heart')
 
-                heart.style.top = `${yInside}px`
-                heart.style.left = `${xInside}px`
+        const x = e.clientX
+        const y = e.clientY
+        const leftOffset = e.target.offsetLeft
+        const topOffset = e.target.offsetTop
 
-                this.appendChild(heart)
-                
+        const xInside = x - leftOffset
+        const yInside = y - topOffset
 
-                clickTime = 0
-                times.innerHTML = ++timesClicked
+        heart.style.top = `${yInside}px`
+        heart.style.left = `${xInside}px`
 
-                setTimeout(() => heart.remove(), 500)
-            } else {
-                clickTime = new Date().getTime()
-            }
-        }
-    })
+        div.appendChild(heart)
+        setTimeout(() => heart.remove(), 500)   
+
+
+        count++
+
+        div.appendChild(clock)     
+        clock.classList.add('times')
+        clock.innerHTML = count
+                                  
+    }) 
+       
 })
 
+
+
+
+// const divs = document.querySelectorAll('div')
+
+// const arr = [divs]
+// console.log('zero log', arr)              /* Zero log */
+
+// for (let i = 0; i < divs.length; i++) {
+
+//     console.log('first log', i)                         /* First log */
+//     const clock = document.createElement('span')
+
+//     let count = 0
+
+//     divs[i].addEventListener('dblclick', (e) => {
+//         ////////////////////////////////////////////////////////////////////////////////////////
+//         const heart = document.createElement('i')
+//         heart.classList.add('fas')
+//         heart.classList.add('fa-heart')
+
+//         const x = e.clientX
+//         const y = e.clientY
+//         const leftOffset = e.target.offsetLeft
+//         const topOffset = e.target.offsetTop
+//         /*function createHeart*/
+//         const xInside = x - leftOffset
+//         const yInside = y - topOffset
+
+//         heart.style.top = `${yInside}px`
+//         heart.style.left = `${xInside}px`
+
+//         divs[i].appendChild(heart)
+//         setTimeout(() => heart.remove(), 500)
+//         ////////////////////////////////////////////////////////////////////////////////////////
+
+//         count++;
+
+//         divs[i].appendChild(clock)
+//         clock.classList.add('times')
+//         clock.innerHTML = count
+
+//         console.log('second log', i)                     /* Second log */
+//     })
+
+// }
+
+// function createHeart(e) {
+//     const heart = document.createElement('i')
+//     heart.classList.add('fas')
+//     heart.classList.add('fa-heart')
+
+//     const x = e.clientX
+//     const y = e.clientY
+//     const leftOffset = e.target.offsetLeft
+//     const topOffset = e.target.offsetTop
+
+//     const xInside = x - leftOffset
+//     const yInside = y - topOffset
+
+//     heart.style.top = `${yInside}px`
+//     heart.style.left = `${xInside}px`
+
+//     divs[i].appendChild(heart)
+//     setTimeout(() => heart.remove(), 500)
+// }

@@ -1,5 +1,5 @@
 
-Clock
+Double-Heart-Click
 
 [LIVE DEMO](https://prostok.github.io/Double-Heart-Click/)
 

@@ -16,6 +16,7 @@ h3 {
     text-align: center;
     font-weight: bold;
     font-size: 25px;
+    user-select: none;
 }
 
 small {
@@ -24,6 +25,16 @@ small {
     text-align: center;
     font-size: 22px;
     font-weight: bold;
+    user-select: none;
+}
+
+.times {
+    text-align: center;
+    position: absolute;
+    top: -6%;
+    font-size: 23px;
+    font-weight: bold;    
+    user-select: none;
 }
 
 .fa-heart {
@@ -144,7 +155,7 @@ small {
 
 @keyframes grow {
     to {
-        transform: translate(-50%, -50%) scale(10);
+        transform: translate(-50%, -50%) scale(18);
         opacity: 0;
     }
 }
